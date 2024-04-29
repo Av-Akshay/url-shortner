@@ -30,4 +30,12 @@ const handelRedirectUrl = async (req,res)=>{
     res.redirect(entries?.redirectURL)
 }
 
-module.exports = {handelGenerateShortUrl,handelRedirectUrl}
+const handelHiFromServer = async (req,res)=>{
+   const allUrls = await Url.find({});
+   
+  res.render("home",{
+    urls: allUrls
+  })
+}
+
+module.exports = {handelGenerateShortUrl,handelRedirectUrl,handelHiFromServer}
