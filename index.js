@@ -1,5 +1,6 @@
 const express = require("express");
 const urlRoute = require("./routers/url");
+const staticRouter = require("./routers/staticRouter")
 const {connectToMongoDB} = require("./connect");
 const bodyParser = require('body-parser');
 const path = require("path")
@@ -10,6 +11,7 @@ const PORT = 8000;
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use("/url",urlRoute);
+app.use("/",staticRouter);
 
 connectToMongoDB("mongodb://127.0.0.1:27017/short-url").then(()=>{
     console.log("mongodb connected");

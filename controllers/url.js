@@ -10,7 +10,9 @@ const handelGenerateShortUrl = async(req,res)=>{
     redirectURL: body.Url,
     visitedHistory:[]
    });
-   return res.json({id: shortId});
+   return res.render("home",{
+    id:shortId
+   })
 };
 
 const handelRedirectUrl = async (req,res)=>{
@@ -25,7 +27,6 @@ const handelRedirectUrl = async (req,res)=>{
             timeStamp: Date.now()
         }
     }})
-    console.log(entries?.redirectURL);
   
     res.redirect(entries?.redirectURL)
 }

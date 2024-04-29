@@ -4,13 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>home</title>
+    <style>
+        body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
 </head>
 <body>
-    <h1>hello i am akshay from server</h1>
-    <% urls.forEach((item)=>{
-        %> 
-        <li><%= item.shortId %> </li>
-        <%
-    }) %>
+    <h1> Url Shortener</h1>
+    <div>
+        <form method="post" action="/url">
+            <label for="">Enter your url:-</label>
+            <input type="text" placeholder="https://exapmle.com" name="Url">
+            <button type="submit"> Generate </button>
+        </form>
+    </div>
+    <div>
+        <% if (locals.id) { %>
+         <p>URL Generated:- http://localhost:8000/url/<%= id  %></p>
+        <% } %>    
+    </div>
 </body>
 </html>
