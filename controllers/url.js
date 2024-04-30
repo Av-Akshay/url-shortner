@@ -8,7 +8,8 @@ const handelGenerateShortUrl = async(req,res)=>{
    await Url.create({
     shortId: shortId,
     redirectURL: body.Url,
-    visitedHistory:[]
+    visitedHistory:[],
+    createdBy: req.user._id
    });
    return res.render("home",{
     id:shortId
@@ -33,7 +34,7 @@ const handelRedirectUrl = async (req,res)=>{
 
 const handelHiFromServer = async (req,res)=>{
    const allUrls = await Url.find({});
-   
+   console.log(allUrls);
   res.render("home",{
     urls: allUrls
   })

@@ -24,5 +24,21 @@
          <p>URL Generated:- http://localhost:8000/url/<%= id  %></p>
         <% } %>    
     </div>
+    <ul> 
+        <% if (locals?.urls) { %>
+
+            <% urls?.forEach(element => { %>
+                <li>
+                    <%= element.shortId %>
+    
+                </li>
+            <% }) %>
+
+         
+        <% } %>
+
+
+
+    </ul>
 </body>
 </html>
