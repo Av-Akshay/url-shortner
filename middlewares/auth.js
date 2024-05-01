@@ -11,4 +11,11 @@ const loggedInUserOnly = async (req,res,next)=>{
       next();
 };
 
-module.exports = {loggedInUserOnly}
+const checkAuth = (req,res,next)=>{
+    const userId = req.cookies?.uid;
+    const user = getUser(userId);
+    req.user = user;
+    next();
+}
+
+module.exports = {loggedInUserOnly,checkAuth}

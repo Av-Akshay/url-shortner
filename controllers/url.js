@@ -32,12 +32,4 @@ const handelRedirectUrl = async (req,res)=>{
     res.redirect(entries?.redirectURL)
 }
 
-const handelHiFromServer = async (req,res)=>{
-   const allUrls = await Url.find({});
-   console.log(allUrls);
-  res.render("home",{
-    urls: allUrls
-  })
-}
-
-module.exports = {handelGenerateShortUrl,handelRedirectUrl,handelHiFromServer}
+module.exports = {handelGenerateShortUrl,handelRedirectUrl}
